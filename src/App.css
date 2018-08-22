@@ -6,8 +6,3 @@ td{
   width: 100px;
   border: 1px dotted gray;
 }
-
-tfoot > tr > td{
-  text-align: center;
-  font-size: 9px;
-}

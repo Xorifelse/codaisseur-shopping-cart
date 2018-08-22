@@ -84,9 +84,6 @@ class App extends Component {
             </tr>        
             <tr><td colSpan="5"><CheckoutButton onCheckoutClick={() => this.checkout()} /></td></tr>
           </tbody>
-          <tfoot>
-            <tr><td colSpan="5"><span>Conclusion; Dont buy fake rolexes or expensive shoes. Paper clips are far more usefull.</span></td></tr>
-          </tfoot>
         </table>
       </div>
     );
