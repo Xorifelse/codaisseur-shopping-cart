@@ -1,0 +1,13 @@
+table{
+  width: 100%;
+}
+td{
+  text-align: right;
+  width: 100px;
+  border: 1px dotted gray;
+}
+
+tfoot > tr > td{
+  text-align: center;
+  font-size: 9px;
+}
