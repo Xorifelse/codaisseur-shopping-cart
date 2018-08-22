@@ -1,17 +1,5 @@
-export default [
-  {
-      id: 1,
-      name: "Prada Shoes",
-      price: 570
-  },
-  {
-      id: 2,
-      name: "Rolex Watch",
-      price: 649
-  },
-  {
-      id: 3,
-      name: "Paper clips",
-      price: 0.1
-  }
-]
+import Faker from 'faker'
+
+export default Array.apply(null, Array(25)).map((val, index) => {
+    return {id: index, name: Faker.lorem.words(), price: Faker.finance.amount(0.01, 100, 2)}
+})
