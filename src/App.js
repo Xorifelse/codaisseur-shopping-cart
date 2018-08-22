@@ -11,7 +11,7 @@ import './App.css';
 class App extends Component {
   state = {
     quantity: {},
-    price: 0.00
+    sum: 0.00
   }
 
   incrementQuantity(productId){
@@ -37,13 +37,13 @@ class App extends Component {
   }
 
   checkout(){
-    let price = 0
+    let sum = 0
 
     for(let item in this.state.quantity){
-      price += products.find(product => product.id === Number(item)).price * this.state.quantity[item]
+      sum += products.find(product => product.id === Number(item)).price * this.state.quantity[item]
     }
 
-    this.setState({price})
+    this.setState({sum})
   }
 
   render() {
@@ -52,7 +52,7 @@ class App extends Component {
         <table>
           <thead>
             <tr>
-              <td>Name</td>
+              <td>Lorem Name</td>
               <td>Price</td>
               <td>Amount</td>
               <td></td>
@@ -75,17 +75,17 @@ class App extends Component {
             <tr>
               <td colSpan="3"></td>
               <td>Sum:</td>
-              <td>&euro;{Number(this.state.price).toFixed(2)}</td>
+              <td>&euro;{Number(this.state.sum).toFixed(2)}</td>
             </tr>              
             <tr>
               <td colSpan="3"></td>
               <td>Tax:</td>
-              <td>&euro;{Number(this.state.price / 100 * 19).toFixed(2)}</td>
+              <td>&euro;{Number(this.state.sum / 100 * 19).toFixed(2)}</td>
             </tr>    
             <tr>
               <td colSpan="3"></td>
               <td>Total:</td>
-              <td>&euro;{Number(this.state.price + (this.state.price / 100 * 19)).toFixed(2)}</td>
+              <td>&euro;{Number(this.state.sum + (this.state.sum / 100 * 19)).toFixed(2)}</td>
             </tr>        
             <tr><td colSpan="5"><CheckoutButton onCheckoutClick={() => this.checkout()} /></td></tr>
           </tbody>
