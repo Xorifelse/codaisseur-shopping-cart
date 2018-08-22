@@ -69,7 +69,7 @@ class App extends Component {
                 id={item.id}
                 name={item.name}
                 price={item.price}
-                quantity={this.state.quantity[item.id]}
+                quantity={this.state.quantity[item.id] || 0}
                 quantitySum={Number(this.state.quantity[item.id] * item.price) || 0}
                 onPlusClick={() => this.incrementQuantity(item.id)}
                 onMinusClick={() => this.decreaseQuantity(item.id)}
