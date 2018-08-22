@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 
 import CartItem from './components/CartItem'
 import CheckoutButton from './components/CheckoutButton'
-import products from './productlist'
 import Clock from 'react-live-clock'
 
+// Fetching random data with Faker
+import products from './productlist' // item = [{id, name, price}, {...}]
 
 import './App.css';
 
 class App extends Component {
   state = {
-    quantity: {},
+    quantity: {}, // {itemId: Quantity}
     sum: 0.00
   }
 
@@ -62,7 +63,7 @@ class App extends Component {
           <tbody>
             {products.map(item =>
               <CartItem
-                key={item.name}
+                key={`${item.name} ${item.id}`}
                 id={item.id}
                 name={item.name}
                 price={item.price}
@@ -71,6 +72,8 @@ class App extends Component {
                 onMinusClick={() => this.decreaseQuantity(item.id)}
               />
             )}
+          </tbody>
+          <tfoot>
             <tr><td colSpan="5">&nbsp;</td></tr>
             <tr>
               <td colSpan="3"></td>
@@ -88,7 +91,7 @@ class App extends Component {
               <td>&euro;{Number(this.state.sum + (this.state.sum / 100 * 19)).toFixed(2)}</td>
             </tr>        
             <tr><td colSpan="5"><CheckoutButton onCheckoutClick={() => this.checkout()} /></td></tr>
-          </tbody>
+          </tfoot>
         </table>
       </div>
     );
