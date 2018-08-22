@@ -40,8 +40,8 @@ class App extends Component {
   checkout(){
     let sum = 0
 
-    for(let item in this.state.quantity){
-      sum += products.find(product => product.id === Number(item)).price * this.state.quantity[item]
+    for(let productId in this.state.quantity){
+      sum += products.find(product => product.id === Number(productId)).price * this.state.quantity[productId]
     }
 
     this.setState({sum})
@@ -53,11 +53,13 @@ class App extends Component {
         <table>
           <thead>
             <tr>
+              <td className="clock" colSpan="5"><Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/Amsterdam'} /></td>
+            </tr>
+            <tr>
               <td>Lorem Name</td>
               <td>Price</td>
-              <td>Amount</td>
+              <td>Quantity</td>
               <td></td>
-              <td><Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/Amsterdam'} /></td>
             </tr>
           </thead>
           <tbody>
@@ -68,6 +70,7 @@ class App extends Component {
                 name={item.name}
                 price={item.price}
                 quantity={this.state.quantity[item.id]}
+                quantitySum={Number(this.state.quantity[item.id] * item.price) || 0}
                 onPlusClick={() => this.incrementQuantity(item.id)}
                 onMinusClick={() => this.decreaseQuantity(item.id)}
               />

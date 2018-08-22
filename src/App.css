@@ -4,14 +4,28 @@ table{
   
 }
 
-td{
+thead > tr {
+  text-align: center !important;
+}
+
+tbody > tr > td{
   text-align: right;
   width: 100px;
   border: 1px dotted gray;
   border-radius: 4px;
 }
+
 tbody > tr:hover{
   border: 1px dotted lightsteelblue;
   background: linear-gradient(to right, #185a9d, #43cea2);
   
+}
+
+tfoot > tr{
+  text-align: right;
+}
+
+.clock{
+  font-weight: bolder;
+  font-size: 40px;
 }
