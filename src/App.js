@@ -74,6 +74,11 @@ class App extends Component {
             <tr><td colSpan="5">&nbsp;</td></tr>
             <tr>
               <td colSpan="3"></td>
+              <td>Sum:</td>
+              <td>&euro;{Number(this.state.price).toFixed(2)}</td>
+            </tr>              
+            <tr>
+              <td colSpan="3"></td>
               <td>Tax:</td>
               <td>&euro;{Number(this.state.price / 100 * 19).toFixed(2)}</td>
             </tr>    
